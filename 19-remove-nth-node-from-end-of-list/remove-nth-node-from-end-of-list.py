@@ -6,7 +6,7 @@ class ListNode:
 class Solution:
     def removeNthFromEnd(self, head, n):
         # 1.) 2 Pointer App with Dummy Node, T(n):O(n), S(n): O(1)
-        # 2.) 3 Pointer App. without Dummy Node, T(n): O(n), S(n): O(1)
+        # 2.) 3 Pointer App. with Dummy Node, T(n): O(n), S(n): O(1)
         dn = ListNode(0,head)
         left,right = dn, head
         while n>0 and right:
