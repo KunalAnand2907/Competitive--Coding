@@ -5,7 +5,7 @@ class ListNode:
         self.next = next
 class Solution:
     def removeNthFromEnd(self, head, n):
-        # 1.) 2 Pointer App with Dummy Node, T(n):O(n), S(n): O(1)
+        # 1.) 2 Pointer App with Dummy Node, T(n):O(n), S(n): O(1) -- hndles all the cases, 1 node & that only delete
         # 2.) 3 Pointer App. with Dummy Node, T(n): O(n), S(n): O(1)
         dn = ListNode(0,head)
         left,right = dn, head
@@ -15,6 +15,7 @@ class Solution:
         while right:
             right = right.next
             left = left.next
-        left.next = left.next.next
+        if n<=0:
+            left.next = left.next.next
 
         return dn.next
