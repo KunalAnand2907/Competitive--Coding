@@ -17,6 +17,6 @@ class Solution:
                 l1 = headB
             if l2 == None:
                 l2 = headA
-        return l1
+        return l2
         
         
