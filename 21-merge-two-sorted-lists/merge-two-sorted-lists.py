@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        # T(n): O(n), S(n): O(1)
+        # T(n): O(n) ~ as botn are sorted initially, S(n): O(1)
         Dummy = ListNode()
         tail = Dummy
         while(l1 and l2):
