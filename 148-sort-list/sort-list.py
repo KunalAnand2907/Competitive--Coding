@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution(object):
     def sortList(self, head):
-        # 1.) Merge Sort in LL
+        # 1.) Merge Sort in LL, T(n): O(nlogn), S(n): O(logn) - Recusrive Splitting
         # Base cond: if head empty or only 1 node return head itself
         if not(head) or not(head.next):
             return head
