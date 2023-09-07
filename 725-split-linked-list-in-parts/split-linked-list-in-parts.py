@@ -5,20 +5,24 @@
 #         self.next = next
 class Solution:
     def splitListToParts(self, head: Optional[ListNode], k: int) -> List[Optional[ListNode]]:
-        length, curr = 0,head
-        while curr:
-            curr = curr.next
-            length+=1
-        
-        base_len,remainder = length//k, length%k
-        curr = head
-        res = []
+        # T(n): O(n), S(n): O(1), None ~ [], [[1,2],[3]] ~ Node1-->Node2, Node3, Node4
+        len,curr = 0,head
+        # 1.) Find the Len of LL
+        while(curr):
+            curr=curr.next
+            len+=1
+        # 2.) Find the BL & Extra Nodes per each LL
+        base_len,remain = len//k,len%k
+        res,curr = [], head
         for i in range(k):
             res.append(curr)
-            for j in range(base_len - 1 +(1 if remainder else 0 )):
-                if not curr: break
+            for j in range(base_len  - 1 + (1 if remain else 0)):
+                if not(curr):
+                    break
                 curr = curr.next
-            remainder-= (1 if remainder else 0)
+            # dec remainder only if it is >=1
+            remain -= (1 if remain else 0)
+            # break the LL, by making it .next point to Null, and move the curr to curr.next
             if curr:
                 curr.next,curr = None,curr.next
         return res
