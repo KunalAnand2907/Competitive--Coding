@@ -1,24 +1,27 @@
 """
 # Definition for a Node.
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+    def __init__(self, x, next=None, random=None):
         self.val = int(x)
         self.next = next
         self.random = random
 """
 
-class Solution:
-    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        copy = preroot = Node(-1, head, None)
-		
-        while head:
-            orig_next = head.next
-            head.next = copy.next = Node(head.val, None, head.random)
-            head, copy = orig_next, copy.next
-        
-        copy = preroot.next
-        while copy:
-            copy.random = copy.random.next if copy.random else None
-            copy = copy.next
-            
-        return preroot.next
+class Solution(object):
+    def copyRandomList(self, head):
+        # 2 Passes & HM, T(n): O(n)+O(n), S(n): O(n)
+        # First Pass
+        otc = {None: None} # Handles the edge cases
+        cur = head
+        while cur:
+            copy = Node(cur.val)
+            otc[cur] = copy # {None:None,Node(7): Node(7)} if not none cur, then cur points to 2nd key
+            cur = cur.next
+        # Second Pass
+        cur = head
+        while cur:
+            copy = otc[cur]
+            copy.next = otc[cur.next]
+            copy.random = otc[cur.random]
+            cur = cur.next
+        return otc[head]
