@@ -24,4 +24,4 @@ class Solution(object):
             copy.next = otc[cur.next]
             copy.random = otc[cur.random]
             cur = cur.next
-        return otc[head]
+        return otc[head] # so it will return copy instead of head
