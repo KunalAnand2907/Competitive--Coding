@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution(object):
     def sortList(self, head):
-        # 1.) Merge Sort in LL, T(n): O(nlogn), S(n): O(logn) - Recusrive Splitting
+        # 1.) Merge Sort in LL, T(n): O(nlogn), S(n): O(n) - Recusrive Splitting & Merging
         # Base cond: if head empty or only 1 node return head itself
         if not(head) or not(head.next):
             return head
@@ -27,7 +27,7 @@ class Solution(object):
             fast= fast.next.next
         return slow # mid node
         
-    def merge(self,left,right):
+    def merge(self,left,right): # Merge every LL in Sorted order
         # Create a dummy node
         tail = dummy = ListNode()
         while left and right: # Not None
