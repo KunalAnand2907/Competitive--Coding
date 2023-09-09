@@ -1,5 +1,5 @@
 class MyCircularQueue(object):
-
+    # Circular Queue by Array
     def __init__(self, k):
         self.data = [0]*k
         self.n = k
