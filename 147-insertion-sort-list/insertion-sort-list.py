@@ -5,21 +5,23 @@
 #         self.next = next
 class Solution(object):
     def insertionSortList(self, head):
-        dummy = ListNode(0,head)
-        prev,cur = head, head.next # 4, 2
-        while cur:
-            if cur.val >= prev.val: # 2>4 do nothing
-                prev,cur=cur,cur.next # means no swapping and iterate both prev, cur by 1 
+        # T(n): O(n**2) - Best Case & O(n) - Best Case (Traversal of LL), S(n): O(1)
+        Dn = ListNode(0,head)
+        Prev,curr = head, head.next
+        while curr:
+            # 1.) if till know the list is in sorted order
+            if curr.val>=Prev.val:
+                Prev,curr = curr, curr.next
                 continue
-            tmp = dummy
-            while cur.val >tmp.next.val: # 2 > 4 -- no
-                tmp=tmp.next # iterate the temp
-            # find the spot for 2 
-            prev.next = cur.next
-            cur.next = tmp.next
-            tmp.next = cur
-            cur = prev.next
-        return dummy.next
-    
+        # 2.) If not in sorted order, so check for the position after which we need to add the node(add in -btw, add before the head)
+            tmp = Dn
+            while(curr.val>tmp.next.val):
+                tmp = tmp.next
+            Prev.next = curr.next
+            curr.next = tmp.next
+            tmp.next = curr
+            curr = Prev.next
+        return Dn.next
+
 
     
