@@ -12,7 +12,7 @@ class Solution:
         #             break
         #    d[nums2[i]]=next
         # return [d[k] for k in nums1]
-        # Method 2: Monotonic Dec Stack with 2 Virtual Pass
+        # Method 2: Monotonic Dec Stack with 2 Virtual Pass - T(n): O(n+n), S(n):
         st = [] # Mon Dec Order
         d = {k:-1 for i,k in enumerate(nums2)}
         n = len(nums2)
