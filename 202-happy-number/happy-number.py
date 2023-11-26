@@ -1,6 +1,6 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
-        # T(n):O(), S(n): O(n)
+        # T(n):O(n), S(n): O(n)
         visit = set()
         while n not in visit:
             visit.add(n)
