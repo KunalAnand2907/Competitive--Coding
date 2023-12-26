@@ -5,7 +5,7 @@ class Solution:
             # base cases
             if x==0:
                 return 0
-            if n==0:
+            elif n==0:
                 return 1
             res = help(x*x,n//2)
             # res = res*res
