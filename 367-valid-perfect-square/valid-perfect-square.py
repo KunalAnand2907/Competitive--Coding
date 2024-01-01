@@ -6,7 +6,7 @@ class Solution(object):
                 return True
             elif i*i>num:
                 return False
-        # # T(n)-O(logn)- Binary Search
+        # # T(n)-O(logn), S(n): O(1)- Binary Search
         # l,r=1,num
         # while(l<=r):
         #     mid=(l+r)//2
