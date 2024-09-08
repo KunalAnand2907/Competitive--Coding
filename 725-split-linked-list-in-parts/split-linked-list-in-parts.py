@@ -1,10 +1,10 @@
 # Definition for singly-linked list.
-# class ListNode:
+# class ListNode(object):
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution:
-    def splitListToParts(self, head: Optional[ListNode], k: int) -> List[Optional[ListNode]]:
+class Solution(object):
+    def splitListToParts(self, head, k):
         # T(n): O(n), S(n): O(1), None ~ [], [[1,2],[3]] ~ Node1-->Node2, Node3, Node4
         len,curr = 0,head
         # 1.) Find the Len of LL
